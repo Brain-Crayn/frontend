@@ -33,6 +33,13 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  border: 10px solid transparent;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+h1:hover {
+  filter: drop-shadow(0 0 10px rgba(100, 108, 255, 1));
 }
 
 button {

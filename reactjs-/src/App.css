@@ -14,7 +14,7 @@
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
+.logo.book:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
@@ -29,7 +29,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 30s linear;
   }
 }
 
@@ -38,7 +38,54 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #ffffff;
+  
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(35, 33, 33, 0.2); /* Add shadow for sophistication */
+  border-radius: 0px 0px 0px 0px; /* Rounded bottom corners */
+  overflow: hidden; /* Prevent clipping issues */
+  box-sizing: border-box;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar li {
+  display: inline;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.navbar a:hover {
+  color: #646cff; /* Change text color for hover effect */
+  text-shadow: 0 0 10px rgba(100, 108, 255, 1),
+               0 0 20px rgba(100, 108, 255, 0.8),
+               0 0 30px rgba(100, 108, 255, 0.6); /* Create glowing text effect */
+  transform: scale(1.1); /* Slightly enlarge the text */
+  border-radius: 25px; /* Keep the same border radius for consistency */
 }
 
 /*test change */

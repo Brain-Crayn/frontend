@@ -1,24 +1,58 @@
 import { useNavigate } from 'react-router-dom';
+import GroupOfStudents from "./Images/students.jpg";
+import './pages.css';
 
 export const AboutUs = () => {
-
     const navigate = useNavigate();
     return (
-
         <>
-            <nav style={styles.navbar}>
-                <ul style={styles.navList}>
-                    <li style={styles.navItem} onClick={() => navigate('/Main')}>Main</li>
-                    <li style={styles.navItem} onClick={() => navigate('/ContactUs')}>Contact Us</li>
-                    <li style={styles.navItem} onClick={() => navigate('/StudyGuides')}>Study Guides</li>
+            <nav className="navbar">
+                <ul className="navList">
+                    <li className="navItem" onClick={() => navigate('/Main')}>Main</li>
+                    <li className="navItem" onClick={() => navigate('/ContactUs')}>Contact Us</li>
+                    <li className="navItem" onClick={() => navigate('/StudyGuides')}>Study Guides</li>
                 </ul>
             </nav>   
-            <h1>About Us</h1>
+            <div className="content">
+                <h1 className="header">About Us</h1>
+            </div>
+            <div className= "studentContainer" target="_blank">
+
+                <div className="textBox">
+                    <h2>Our Mission</h2>
+                    <p>
+                        Welcome to the BC Study Guide Club! We are a dedicated team of 20 students committed to helping learners excel in their academic journey. Our mission is to provide high-quality resources for students pursuing the High School Diploma, IB, and AP programs. Through our platform, we offer comprehensive study materials, including in-depth study guides, practice questions, and instructional videos designed to make learning more accessible and engaging. Our team works tirelessly to create resources that cater to the unique needs of each program, ensuring that students have everything they need to succeed. Whether you’re preparing for a challenging exam or looking to strengthen your understanding of key concepts, the BC Study Guide Club is here to support you every step of the way. Join us and discover how we can help you reach your academic goals!.
+                    </p>
+                </div>
+                <img src={GroupOfStudents} className="students" alt="Group of students" />
+                
+            </div>
+
         </>  
     );
 };
 
-const styles = {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*const styles = {
     navbar: {
         backgroundColor: '#000000',
         padding: '10px 20px',
@@ -52,4 +86,4 @@ const styles = {
     navItemHover: {
         color: '#61dafb',
     },
-};
+};    */}

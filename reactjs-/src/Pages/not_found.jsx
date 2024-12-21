@@ -1,55 +1,24 @@
 import { useNavigate } from 'react-router-dom';
+import './pages.css';
 
 export const NotFound = () => {
 
     const navigate = useNavigate();
     return (
         <>
-            <nav style={styles.navbar}>
-                <ul style={styles.navList}>
-                    <li style={styles.navItem} onClick={() => navigate('/AboutUs')}>About Us</li>
-                    <li style={styles.navItem} onClick={() => navigate('/ContactUs')}>Contact Us</li>
-                    <li style={styles.navItem} onClick={() => navigate('/StudyGuides')}>Study Guides</li>
-                    <li style={styles.navItem} onClick={() => navigate('/Main')}>Main</li>
+            <nav className="navbar">
+                <ul className="navList">
+                    <li className="navItem" onClick={() => navigate('/AboutUs')}>About Us</li>
+                    <li className="navItem" onClick={() => navigate('/ContactUs')}>Contact Us</li>
+                    <li className="navItem" onClick={() => navigate('/StudyGuides')}>Study Guides</li>
+                    <li className="navItem" onClick={() => navigate('/Main')}>Main</li>
                 </ul>
             </nav>   
-            <h1>404 Not Found</h1>
+            <div>
+                <h1>404 Not Found</h1>
+                <p>Were you looking at the correct place?</p>
+            </div>
         </>
     );
 };
 
-const styles = {
-    navbar: {
-        backgroundColor: '#000000',
-        padding: '10px 20px',
-        display: 'flex',
-        justifyContent: 'space-between', // Evenly distribute the items
-        alignItems: 'center', // Vertically center the items
-        borderRadius: '30px', // Uniform rounded edges for all corners
-        position: 'fixed',
-        top: 0,
-        left: 0, // Make sure it starts from the left edge
-        right: 0, // Make sure it stretches to the right edge
-        width: '100%', // Full width of the viewport
-        zIndex: 1000,
-        boxSizing: 'border-box', // Ensures padding doesn't affect width
-    },
-    navList: {
-        listStyleType: 'none',
-        margin: 0,
-        padding: 0,
-        display: 'flex',
-        justifyContent: 'space-around', // Distribute the items evenly within the list
-        width: '100%', // Ensure the list takes the full width of the navbar
-    },
-    navItem: {
-        color: '#fff',
-        cursor: 'pointer',
-        textDecoration: 'none',
-        fontSize: '18px',
-        fontWeight: 'bold',
-    },
-    navItemHover: {
-        color: '#61dafb',
-    },
-};

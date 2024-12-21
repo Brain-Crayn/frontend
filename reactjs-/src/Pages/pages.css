@@ -1,0 +1,195 @@
+
+
+
+.navbar {
+  background-color: #000000;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.navList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.navItem {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.navItem:hover {
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhances the shadow on hover */
+  filter: 
+    drop-shadow(0 0 6em #ffffff)
+    drop-shadow(0 0 8em #ffffff);
+}
+
+.studyContent {
+  margin-top: 0px; /* Space below the navbar */
+  display: flex;
+  justify-content: flex-start; /* Align content at the top */
+  align-items: center; /* Center horizontally */
+  flex-direction: column;
+  height: auto; /* Ensure it adjusts for the full viewport height minus navbar */
+  padding: 0px;
+}
+
+.content {
+  margin-top: -130px; /* Space below the navbar */
+  display: flex;
+  justify-content: flex-start; /* Align content at the top */
+  align-items: center; /* Center horizontally */
+  flex-direction: column;
+  height: auto; /* Ensure it adjusts for the full viewport height minus navbar */
+  padding: 0px;
+}
+
+.header {
+  margin: 0;
+  padding: 0px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center; /* Horizontal centering of text */
+}
+
+.studentContainer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end; /* Aligns the image to the right */
+  align-items: center; 
+  width: 100%; /* Makes the container span the full width of the viewport */
+  padding-right: 0px; /* Adjusts the space between the image and the right edge */
+  
+}
+
+.students {
+  max-width: 50%; /* Scales the image appropriately */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 10px; /* Adds rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow around the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  margin: 0; /* Removes any additional margin around the image */
+  margin-left: 30px;
+}
+
+/* Hover effect for the image */
+.students:hover {
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhances the shadow on hover */
+}
+
+.textBox {
+  max-width: 50%; /* Controls the width of the text box */
+  padding: 1px 10px; /* Adds padding inside the text box */
+  background-color: #f4f4f4; /* Gives the text box a background color */
+  border-radius: 10px; /* Adds rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a light shadow around the text box */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.textBox h2 {
+  font-size: 1.5em; /* Adjusts the heading font size */
+  font-weight: bold;
+  color: #000000;
+}
+
+.textBox p {
+  font-size: 12px; /* Adjusts the paragraph font size */
+  color: #333; /* Sets a darker text color */
+}
+
+.textBox:hover {
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhances the shadow on hover */
+}
+
+
+
+
+
+
+/* Card container layout */
+.cardContainer {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 20px; /* Space between the cards */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Individual card styling */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 250px; /* Set the width of the card */
+  height: 350px; /* Set the height of the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-5px); /* Lift the card slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance the shadow on hover */
+}
+
+/* Card title */
+.cardTitle {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Card description */
+.cardDescription {
+  font-size: 1em;
+  color: #666;
+  flex-grow: 1; /* Push the button to the bottom */
+  margin-bottom: 20px;
+}
+
+/* Card button */
+.cardButton {
+  background-color: #646cff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cardButton:hover {
+  background-color: #535bf2;
+  transform: scale(1.05);
+}
+
+

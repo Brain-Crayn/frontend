@@ -10,7 +10,7 @@ export const AP = () => {
             <div className="backButton" onClick={() => window.history.back()}>
                 ← Back
             </div>
-            <h1 className="header">AP Guides</h1>
+            <h1 className="header1">AP Guides</h1>
 
             <div className="highschoolSubjects-container">
                 <div className="highschoolSubject-card">

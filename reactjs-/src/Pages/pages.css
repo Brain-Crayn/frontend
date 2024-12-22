@@ -71,6 +71,10 @@
   }
 }
 
+
+
+
+
 .studyContent {
   margin-top: 0px; /* Space below the navbar */
   display: flex;
@@ -91,7 +95,7 @@
   padding: 0px;
 }
 
-.header {
+.header1 {
   margin: 0;
   padding: 0px;
   font-size: 2em;
@@ -111,7 +115,7 @@
 
 .students {
   max-width: 50%; /* Scales the image appropriately */
-  height: auto; /* Maintains the aspect ratio */
+  height: 450px; /* Maintains the aspect ratio */
   border-radius: 10px; /* Adds rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow around the image */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
@@ -127,6 +131,7 @@
 
 .textBox {
   max-width: 50%; /* Controls the width of the text box */
+  height: 450px;
   padding: 1px 10px; /* Adds padding inside the text box */
   background-color: #f4f4f4; /* Gives the text box a background color */
   border-radius: 10px; /* Adds rounded corners */
@@ -135,20 +140,23 @@
 }
 
 .textBox h2 {
-  font-size: 1.5em; /* Adjusts the heading font size */
+  font-size: 2.1em; /* Adjusts the heading font size */
   font-weight: bold;
   color: #000000;
 }
 
 .textBox p {
-  font-size: 12px; /* Adjusts the paragraph font size */
+  font-size: 17px; /* Adjusts the paragraph font size */
   color: #333; /* Sets a darker text color */
+  text-align: left;
 }
 
 .textBox:hover {
   transform: scale(1.05); /* Slightly enlarges the image on hover */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhances the shadow on hover */
 }
+
+
 
 
 
@@ -339,4 +347,114 @@
   .highschoolSubjects-container {
     grid-template-columns: 1fr; /* 1 column on small screens */
   }
+}
+
+
+
+
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #1a1a2e; /* Dark futuristic background */
+  padding: 10px 20px;
+  position: relative;
+  border-bottom: 2px solid #0f3460; /* Subtle futuristic border */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Hamburger Button */
+.hamburger-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 10;
+  background-color: #191818; /* Single solid color */
+  border-radius: 50%; /* Circular button */
+  padding: 10px;
+  transition: transform 0.8s ease, background-color 0.3s ease;
+}
+
+/* Rotate on hover */
+.hamburger-button:hover {
+  transform: rotate(180deg) scale(1.1); /* Full rotation on hover */
+  background-color: #26232e; /* Change color on hover */
+}
+
+/* Hamburger Lines */
+.hamburger-button .line {
+  width: 100%;
+  height: 3px;
+  background-color: white; /* Single color for lines */
+  margin: 3px 0;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  margin-top: 10px;
+  background: #16213e;
+  width: 180px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(-20px);  /*Slide-in effect */
+}
+
+.nav-menu.open {
+  opacity: 1; /* Visible when open */
+  transform: translateY(0);
+}
+
+.nav-menu a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: "Roboto Mono", monospace; /* Futuristic font */
+  border-bottom: 1px solid #0f3460;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.8s ease;
+}
+
+.nav-menu a:last-child {
+  border-bottom: none;
+}
+
+.nav-menu a:hover {
+  background-color: #0f3460;
+  color: #e94560; /* Glow color on hover */
+  transform: translatex(0px) scale(1.1);
+}
+
+
+.nav-menu {
+  display: none; /* Hide the menu by default */
+}
+
+.nav-menu.open {
+  display: block; /* Show the menu when open */
+}
+
+/* Disable interactions when the menu is closed */
+.nav-menu a {
+  pointer-events: none; /* Prevent clicks on links when the menu is closed */
+}
+
+.nav-menu.open a {
+  pointer-events: auto; /* Allow clicks on links when the menu is open */
 }

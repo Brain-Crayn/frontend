@@ -76,7 +76,7 @@ export const ContactUs = () => {
                         </button>
                     </div>
                     <div className="card">
-                        <h2 className="cardTitle">Have any questions?</h2>
+                        <h2 className="cardTitle">Any questions?</h2>
                         <div className="instaWrapper">
                             <img src={Email} className= "instaImage" alt="Email" />
                         </div>

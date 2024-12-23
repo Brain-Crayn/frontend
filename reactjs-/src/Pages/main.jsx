@@ -90,5 +90,3 @@ export const Main = () => {
         </>
     );
 };
-
-

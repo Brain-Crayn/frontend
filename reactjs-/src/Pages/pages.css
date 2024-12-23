@@ -1,5 +1,5 @@
 .navbar {
-  background: linear-gradient(90deg, #0d0d0d, #1e1e1e); /* Sleek gradient background */
+  background: linear-gradient(90deg, #0d0d0d, #1e1e1e); 
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -11,7 +11,7 @@
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .navList {
@@ -24,7 +24,7 @@
 }
 
 .navItem {
-  color: #83a8e0; /* Cool blue color */
+  color: #83a8e0; 
   cursor: pointer;
   text-decoration: none;
   font-size: 18px;
@@ -40,7 +40,7 @@
   left: 50%;
   width: 0%;
   height: 2px;
-  background-color: #1400cc; /* Subtle underline color */
+  background-color: #1400cc;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -50,13 +50,13 @@
 }
 
 .navItem:hover {
-  transform: scale(1.1); /* Slight enlargement */
-  color: #ffffff; /* Change color on hover */
-  text-shadow: 0 0 3px #1400cc, 0 0 5px #1400cc; /* Subtle text glow */
+  transform: scale(1.1); 
+  color: #ffffff; 
+  text-shadow: 0 0 3px #1400cc, 0 0 5px #1400cc; 
 }
 
 .navbar:hover {
-  animation: pulse 2s infinite; /* Reduced futuristic animation */
+  animation: pulse 2s infinite; 
 }
 
 @keyframes pulse {
@@ -73,22 +73,22 @@
 
 
 .studyContent {
-  margin-top: 0px; /* Space below the navbar */
+  margin-top: 0px; 
   display: flex;
-  justify-content: flex-start; /* Align content at the top */
-  align-items: center; /* Center horizontally */
+  justify-content: flex-start; 
+  align-items: center; 
   flex-direction: column;
-  height: auto; /* Ensure it adjusts for the full viewport height minus navbar */
+  height: auto; 
   padding: 0px;
 }
 
 .content {
-  margin-top: -130px; /* Space below the navbar */
+  margin-top: -130px; 
   display: flex;
-  justify-content: flex-start; /* Align content at the top */
-  align-items: center; /* Center horizontally */
+  justify-content: flex-start; 
+  align-items: center; 
   flex-direction: column;
-  height: auto; /* Ensure it adjusts for the full viewport height minus navbar */
+  height: auto; 
   padding: 0px;
 }
 
@@ -471,6 +471,11 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow for better visibility */
   font-family: Arial, sans-serif; /* Clean, readable font */
+  transition: transform 0.4s ease;
+}
+
+.form-container:hover{
+  transform: translateY(-5px);
 }
 
 .form-group {
@@ -488,14 +493,19 @@ label {
 input, select, textarea {
   width: 90%; /* Reduced width for a cleaner look */
   padding: 10px; /* Adjusted padding */
-  border: 1px solid #6a0dad; /* Purple border for consistency */
+  border: 3px solid #6a0dad; /* Purple border for consistency */
   border-radius: 6px; /* Rounded corners for modern UI */
   font-size: 14px; /* Standard font size */
   color: #000; /* Black text for inputs */
   background-color: #f7f7f7; /* Light gray background for inputs */
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.4s ease;
   margin: 0 auto; /* Center align within the container */
 }
+
+input:hover, select:hover, textarea:hover {
+  transform: scale(1.025);
+}
+
 
 input:focus, select:focus, textarea:focus {
   border-color: #9b4ede; /* Lighter purple focus color */

@@ -92,7 +92,12 @@ export const ContactUs = () => {
                         <div className="instaWrapper">
                             <img src={Questions} className= "instaImage" alt="Email" />
                         </div>
-                        <button className="cardButton">Explore</button>
+                        <button 
+                            className="cardButton" 
+                            onClick={() => navigate('/Form')}
+                        >
+                            Explore
+                        </button>
                     </div>
                     
                 </div>

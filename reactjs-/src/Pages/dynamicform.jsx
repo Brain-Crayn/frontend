@@ -192,7 +192,7 @@ const DynamicForm = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="file">Upload your study guide (PDF):</label>
+              <label htmlFor="file">Upload your study guide (PDF, write your name, subject, and units):</label>
               <input
                 type="file"
                 id="file"
@@ -298,7 +298,7 @@ const DynamicForm = () => {
           </select>
         </div>
         {renderAdditionalFields()}
-        <div className="form-group">
+        {/*<div className="form-group">
           <label htmlFor="file">Upload your image or PDF:</label>
           <input
             type="file"
@@ -306,7 +306,7 @@ const DynamicForm = () => {
             onChange={handleFileUpload}
             accept="image/*,application/pdf"
           />
-        </div>
+        </div>*/}
         <button type="submit">Submit</button>
         {submitMessage && <p>{submitMessage}</p>}
       </form>

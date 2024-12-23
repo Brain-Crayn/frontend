@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
-import { CloudinaryContext, Image, Video, Transformation } from 'cloudinary-react';
 import "./pages.css";
 
 const DynamicForm = () => {
@@ -14,6 +12,7 @@ const DynamicForm = () => {
     subject: "",
     message: "",
     file: null,  // Image or PDF URL will be stored here
+    action: "",  // New field to store the selected option (e.g., "contribute", "question", etc.)
   });
   const [submitMessage, setSubmitMessage] = useState("");
 
@@ -25,58 +24,25 @@ const DynamicForm = () => {
     });
   };
 
+  // Add this function to handle changes in the "What would you like to do?" dropdown
+  const handleActionChange = (e) => {
+    setSelectedOption(e.target.value);
+    setFormData({
+      ...formData,
+      action: e.target.value,  // Update the action field in formData
+    });
+  };
+
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     
     if (file) {
-      if (file.type === "application/pdf") {
-        // Cloudinary Upload Configuration for PDF
-        const uploadPreset = "ml_default"; // Replace with your Cloudinary upload preset
-
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", uploadPreset);
-
-        // Upload the PDF file
-        fetch("https://api.cloudinary.com/v1_1/dbzvjueuy/upload", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("PDF uploaded:", data);
-            setFormData({
-              ...formData,
-              file: data.secure_url, // Save the uploaded PDF URL
-            });
-          })
-          .catch((err) => {
-            console.error("Error uploading PDF:", err);
-          });
-      } else if (file.type.startsWith("image/")) {
-        // Cloudinary Upload Configuration for Images
-        const uploadPreset = "ml_default"; // Replace with your Cloudinary upload preset
-
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", uploadPreset);
-
-        // Upload the Image file
-        fetch("https://api.cloudinary.com/v1_1/dbzvjueuy/image/upload", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Image uploaded:", data);
-            setFormData({
-              ...formData,
-              file: data.secure_url, // Save the uploaded image URL
-            });
-          })
-          .catch((err) => {
-            console.error("Error uploading image:", err);
-          });
+      // Check if file type is valid (PDF or image)
+      if (file.type === "application/pdf" || file.type.startsWith("image/")) {
+        setFormData({
+          ...formData,
+          file: file,  // Store the file locally for now
+        });
       } else {
         alert("Please upload a valid image or PDF file.");
       }
@@ -86,53 +52,63 @@ const DynamicForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const emailData = {
-      fullName: formData.fullName,
-      email: formData.email,
-      school: formData.school,
-      diploma: formData.diploma,
-      gpa: formData.gpa,
-      subject: formData.subject,
-      message: formData.message,
-      file: formData.file, // Add file URL (image or PDF) to the email data
-    };
+    // Prepare form data to send to Django
+    const formDataToSend = new FormData();
+    formDataToSend.append("fullName", formData.fullName);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("school", formData.school);
+    formDataToSend.append("diploma", formData.diploma);
+    formDataToSend.append("gpa", formData.gpa);
+    formDataToSend.append("subject", formData.subject);
+    formDataToSend.append("message", formData.message);
+    formDataToSend.append("file", formData.file); // Send the file as well
+    formDataToSend.append("action", formData.action); // Include the action field
 
-    emailjs
-      .send(
-        "service_xwoq3ao", // Replace with your EmailJS service ID
-        "template_ubixrph", // Replace with your EmailJS template ID
-        emailData,
-        "zOnQXPVJOwRpFda7C" // Replace with your EmailJS public API key
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          setSubmitMessage("Your form has been successfully submitted!");
+    // API URL for the Django backend
+    const apiUrl = import.meta.env.VITE_API_URL;
+    console.log("API URL:", apiUrl);
 
-          // Reset form data after successful submission
-          setFormData({
-            fullName: "",
-            email: "",
-            school: "",
-            diploma: "",
-            gpa: "",
-            subject: "",
-            message: "",
-            file: null,
-          });
+    fetch(`${apiUrl}contributeRequest/requestform`, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": getCSRFToken(),  // CSRF token from the cookie
+      },
+      body: formDataToSend,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("SUCCESS:", data);
+        setSubmitMessage("Your form has been successfully submitted!");
 
-          setSelectedOption(""); // Reset the selected option
+        // Reset form data after successful submission
+        setFormData({
+          fullName: "",
+          email: "",
+          school: "",
+          diploma: "",
+          gpa: "",
+          subject: "",
+          message: "",
+          file: null,
+          action: "",  // Reset the action field
+        });
 
-          // Reset the success message after 3 seconds
-          setTimeout(() => {
-            setSubmitMessage("");
-          }, 3000);
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setSubmitMessage("There was an error submitting your form. Please try again.");
-        }
-      );
+        setSelectedOption("");  // Reset the selected option
+
+        // Reset the success message after 3 seconds
+        setTimeout(() => {
+          setSubmitMessage("");
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error("FAILED:", error);
+        setSubmitMessage("There was an error submitting your form. Please try again.");
+      });
+  };
+
+  const getCSRFToken = () => {
+    const match = document.cookie.match(new RegExp("(?:^|; )csrftoken=([^;]*)"));
+    return match ? match[1] : "";
   };
 
   const renderAdditionalFields = () => {
@@ -288,7 +264,7 @@ const DynamicForm = () => {
             id="action"
             name="action"
             value={selectedOption} // Bind value
-            onChange={(e) => setSelectedOption(e.target.value)}
+            onChange={handleActionChange}  // Call the new handler
             required
           >
             <option value="">Select an option</option>
@@ -298,15 +274,6 @@ const DynamicForm = () => {
           </select>
         </div>
         {renderAdditionalFields()}
-        {/*<div className="form-group">
-          <label htmlFor="file">Upload your image or PDF:</label>
-          <input
-            type="file"
-            name="file"
-            onChange={handleFileUpload}
-            accept="image/*,application/pdf"
-          />
-        </div>*/}
         <button type="submit">Submit</button>
         {submitMessage && <p>{submitMessage}</p>}
       </form>

@@ -1,6 +1,3 @@
-
-
-
 .navbar {
   background: linear-gradient(90deg, #0d0d0d, #1e1e1e); /* Sleek gradient background */
   padding: 10px 20px;
@@ -369,8 +366,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 20px;
   cursor: pointer;
   position: absolute;
   top: 15px;
@@ -437,7 +434,7 @@
 
 .nav-menu a:hover {
   background-color: #0f3460;
-  color: #e94560; /* Glow color on hover */
+  color: #22B8F0; /* Glow color on hover */
   transform: translatex(0px) scale(1.1);
 }
 
@@ -457,4 +454,95 @@
 
 .nav-menu.open a {
   pointer-events: auto; /* Allow clicks on links when the menu is open */
+}
+
+
+
+
+
+
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #000; /* Black background for contrast */
+  border: 2px solid #6a0dad; /* Purple outline */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow for better visibility */
+  font-family: Arial, sans-serif; /* Clean, readable font */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Spacing between form groups */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px; /* Spacing between label and input */
+  font-weight: 600;
+  font-size: 14px; /* Readable font size */
+  color: #fff; /* White text for readability against black background */
+}
+
+input, select, textarea {
+  width: 90%; /* Reduced width for a cleaner look */
+  padding: 10px; /* Adjusted padding */
+  border: 1px solid #6a0dad; /* Purple border for consistency */
+  border-radius: 6px; /* Rounded corners for modern UI */
+  font-size: 14px; /* Standard font size */
+  color: #000; /* Black text for inputs */
+  background-color: #f7f7f7; /* Light gray background for inputs */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  margin: 0 auto; /* Center align within the container */
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #9b4ede; /* Lighter purple focus color */
+  box-shadow: 0 0 5px rgba(155, 78, 222, 0.5); /* Subtle focus shadow */
+  outline: none;
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+button {
+  width: 100%; /* Full-width button for consistency */
+  padding: 10px;
+  background-color: #6a0dad; /* Purple background for buttons */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #9b4ede; /* Lighter purple on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.google-form {
+  margin-top: 20px;
+  text-align: center; /* Center-align the embedded form */
+}
+
+.google-form iframe {
+  width: 100%; /* Ensure responsive width */
+  max-width: 100%;
+  border: 2px solid #6a0dad; /* Purple border for visibility */
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px; /* Slightly smaller button font for smaller screens */
+  }
 }

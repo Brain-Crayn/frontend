@@ -7,6 +7,8 @@ import { NotFound } from './Pages/not_found';
 import { IB } from './Pages/IB.jsx';
 import { AP } from './Pages/AP.jsx';
 import { Highschool } from './Pages/highschool.jsx';
+import { Form } from './Pages/form.jsx';
+
 
 export const AppRoutes = () => {
     return (
@@ -21,6 +23,9 @@ export const AppRoutes = () => {
                 <Route path="/IB" element={<IB />} />
                 <Route path="/AP" element={<AP />} />
                 <Route path="/Highschool" element={<Highschool />} />
+                <Route path="/Form" element={<Form />} />
+                
+
             </Routes>
         </Router>
     );

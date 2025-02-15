@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 import "./pages.css";
 
 const DynamicForm = () => {
@@ -16,12 +17,19 @@ const DynamicForm = () => {
   });
   const [submitMessage, setSubmitMessage] = useState("");
 
+  useEffect(() => {
+    // Fetch CSRF token on component mount
+    getCSRFToken().then((csrfToken) => {
+		Cookies.set("csrftoken", csrfToken);  // Store the token in a cookie
+	});
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: files ? files[0] : value,
-    });
+    }));
   };
 
   // Add this function to handle changes in the "What would you like to do?" dropdown
@@ -49,7 +57,7 @@ const DynamicForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Prepare form data to send to Django
@@ -66,16 +74,23 @@ const DynamicForm = () => {
 
     // API URL for the Django backend
     const apiUrl = import.meta.env.VITE_API_URL;
-    console.log("API URL:", apiUrl);
 
-    fetch(`${apiUrl}contributeRequest/requestform`, {
+	const csrfToken = Cookies.get("csrftoken");  // Get the CSRF token from the cookie
+
+    await fetch(`${apiUrl}contributeRequest/requestform/`, {
       method: "POST",
       headers: {
-        "X-CSRFToken": getCSRFToken(),  // CSRF token from the cookie
+        "X-CSRFToken": csrfToken,  // CSRF token from the cookie
       },
       body: formDataToSend,
+	  credentials: "include",
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log("SUCCESS:", data);
         setSubmitMessage("Your form has been successfully submitted!");
@@ -106,10 +121,15 @@ const DynamicForm = () => {
       });
   };
 
-  const getCSRFToken = () => {
-    const match = document.cookie.match(new RegExp("(?:^|; )csrftoken=([^;]*)"));
-    return match ? match[1] : "";
-  };
+  const getCSRFToken = async () => {
+	const apiUrl = import.meta.env.VITE_API_URL;
+    const response = await fetch(`${apiUrl}getCSRFToken/`, {
+		method: "GET",
+		credentials: "include",
+	  });
+    const data = await response.json();
+    return data.csrfToken;  // Use this token in your requests
+};
 
   const renderAdditionalFields = () => {
     switch (selectedOption) {

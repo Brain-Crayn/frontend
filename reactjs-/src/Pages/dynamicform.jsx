@@ -19,9 +19,9 @@ const DynamicForm = () => {
 
   useEffect(() => {
     // Fetch CSRF token on component mount
-    getCSRFToken().then((csrfToken) => {
-		Cookies.set("csrftoken", csrfToken);  // Store the token in a cookie
-	});
+    // getCSRFToken().then((csrftoken) => {
+	// 	Cookies.set("csrftoken", csrftoken);  // Store the token in a cookie
+	// });
   }, []);
 
   const handleChange = (e) => {
@@ -75,7 +75,10 @@ const DynamicForm = () => {
     // API URL for the Django backend
     const apiUrl = import.meta.env.VITE_API_URL;
 
-	const csrfToken = Cookies.get("csrftoken");  // Get the CSRF token from the cookie
+	const csrfToken = await getCSRFToken();  // Get the CSRF token from the cookie
+
+    // VERIFY TOKEN
+    // console.log("CSRF Token:", csrfToken);
 
     await fetch(`${apiUrl}contributeRequest/requestform/`, {
       method: "POST",
@@ -92,7 +95,7 @@ const DynamicForm = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("SUCCESS:", data);
+        // console.log("SUCCESS:", data);
         setSubmitMessage("Your form has been successfully submitted!");
 
         // Reset form data after successful submission
@@ -122,12 +125,15 @@ const DynamicForm = () => {
   };
 
   const getCSRFToken = async () => {
+    // console.log("Fetching CSRF token...");
 	const apiUrl = import.meta.env.VITE_API_URL;
     const response = await fetch(`${apiUrl}getCSRFToken/`, {
 		method: "GET",
 		credentials: "include",
 	  });
     const data = await response.json();
+    // DEBUG - PRINT TOKEN
+    // console.log(data.csrfToken);
     return data.csrfToken;  // Use this token in your requests
 };
 

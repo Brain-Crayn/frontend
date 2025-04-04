@@ -8,6 +8,7 @@ import { IB } from './Pages/IB.jsx';
 import { AP } from './Pages/AP.jsx';
 import { Highschool } from './Pages/highschool.jsx';
 import { Form } from './Pages/form.jsx';
+import { ClassResources } from './Pages/ClassResources.jsx';
 
 
 export const AppRoutes = () => {
@@ -24,6 +25,7 @@ export const AppRoutes = () => {
                 <Route path="/AP" element={<AP />} />
                 <Route path="/Highschool" element={<Highschool />} />
                 <Route path="/Form" element={<Form />} />
+                <Route path="/IB/:class_id" element={<ClassResources />} /> {/* Dynamic Routing */}
                 
 
             </Routes>

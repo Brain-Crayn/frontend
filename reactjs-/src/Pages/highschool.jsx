@@ -70,7 +70,7 @@ import './pages.css'; // Ensure styles are applied
 export const Highschool = () => {
     const navigate = useNavigate();
     const [classes, setClasses] = useState([]);
-    const apiUrl = 'https://127.0.0.1:8000'; // Your backend URL
+    const apiUrl = import.meta.env.VITE_API_URL; // Your backend URL
 
     useEffect(() => {
         const fetchClasses = async () => {

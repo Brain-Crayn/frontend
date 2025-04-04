@@ -7,7 +7,7 @@ export const ClassResources = () => {
     const navigate = useNavigate();
     const [resources, setResources] = useState([]);
     const [loading, setLoading] = useState(true);
-    const apiUrl = 'https://127.0.0.1:8000';
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         const fetchResources = async () => {

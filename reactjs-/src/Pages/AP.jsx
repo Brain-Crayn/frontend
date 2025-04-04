@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+{/*import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const AP = () => {
@@ -59,4 +59,63 @@ export const AP = () => {
         </>
     );
 
-}
+} */}
+
+
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './pages.css'; // Ensure styles are applied
+
+export const AP = () => {
+    const navigate = useNavigate();
+    const [classes, setClasses] = useState([]);
+    const apiUrl = 'https://127.0.0.1:8000'; // Your backend URL
+
+    useEffect(() => {
+        const fetchClasses = async () => {
+            try {
+                console.log("Fetching IB classes...");
+                const response = await fetch(`${apiUrl}/r/classes/ap`);
+
+                if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
+
+                const data = await response.json();
+                console.log("API Response:", data);
+
+                if (data && Array.isArray(data.classes)) {
+                    setClasses(data.classes);
+                    console.log("Classes set:", data.classes);
+                } else {
+                    console.error("Unexpected API response:", data);
+                }
+            } catch (error) {
+                console.error("Error fetching classes:", error);
+            }
+        };
+
+        fetchClasses();
+    }, []);
+
+    return (
+        <>
+            <div className="backButton" onClick={() => navigate(-1)}>← Back</div>
+            <h1 className="title">AP Classes</h1>
+
+            <div className="resource-grid">
+                {classes.length > 0 ? (
+                    classes.map((apClass) => (
+                        <div 
+                            key={apClass.class_id} 
+                            className="resource-card"
+                            onClick={() => navigate(`/IB/${apClass.class_id}`)} // Dynamic routing
+                        >
+                            <h3>{apClass.class_name}</h3>
+                        </div>
+                    ))
+                ) : (
+                    <p className="loading-text">Loading classes...</p>
+                )}
+            </div>
+        </>
+    );
+};

@@ -127,7 +127,7 @@ const DynamicForm = () => {
   const getCSRFToken = async () => {
     // console.log("Fetching CSRF token...");
 	const apiUrl = import.meta.env.VITE_API_URL;
-    const response = await fetch(`${apiUrl}getCSRFToken/`, {
+    const response = await fetch(`${apiUrl}/getCSRFToken/`, {
 		method: "GET",
 		credentials: "include",
 	  });

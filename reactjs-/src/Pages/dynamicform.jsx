@@ -80,7 +80,7 @@ const DynamicForm = () => {
     // VERIFY TOKEN
     // console.log("CSRF Token:", csrfToken);
 
-    await fetch(`${apiUrl}contributeRequest/requestform/`, {
+    await fetch(`${apiUrl}/contributeRequest/requestform/`, {
       method: "POST",
       headers: {
         "X-CSRFToken": csrfToken,  // CSRF token from the cookie

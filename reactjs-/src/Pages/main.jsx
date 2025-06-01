@@ -49,7 +49,7 @@ export const Main = () => {
                     </div>
                     <nav className={`nav-menu ${menuOpen ? "open" : ""}`} ref={menuRef}>
                         <a href="/main">Home</a>
-                        <a href="/AboutUS">About</a>
+                        
                         <a href="/StudyGuides">Services</a>
                         <a href="/ContactUS">Contact</a>
                     </nav>
@@ -68,9 +68,9 @@ export const Main = () => {
                 BC Study Guide
             </h1>
             <div className="intialCard">
-                <button onClick={() => navigate('/AboutUs')}>
+                <button onClick={() => navigate('/StudyGuides')}>
                     
-                    About Us
+                    Resources
                 </button>
                 <p>
                     *Our new math study guide for mocks is now available*

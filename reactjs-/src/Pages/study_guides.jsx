@@ -50,7 +50,7 @@ export const StudyGuides = () => {
                     </div>
                     <nav className={`nav-menu ${menuOpen ? "open" : ""}`} ref={menuRef}>
                         <a href="/main">Home</a>
-                        <a href="/AboutUS">About</a>
+                        
                         <a href="/StudyGuides">Services</a>
                         <a href="/ContactUS">Contact</a>
                     </nav>

@@ -78,6 +78,12 @@ export const Main = () => {
                 </button>
                 
             </div>
+            <div className="intialCard" >
+                <button onClick={() => window.open('https://sites.google.com/gemsdaa.net/students-for-students', '_blank')}>
+                    SOS Tutoring
+                </button>
+            </div>
+
             <p className="read-the-docs">
                 Aimed at providing you with the best education possible <br />
             </p>

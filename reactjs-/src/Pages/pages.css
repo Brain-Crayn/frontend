@@ -456,6 +456,41 @@
   pointer-events: auto; /* Allow clicks on links when the menu is open */
 }
 
+/* Auth Navigation Links */
+.nav-menu .auth-link {
+  margin-top: 8px;
+  border-top: 2px solid #0f3460;
+  background-color: rgba(15, 52, 96, 0.3);
+}
+
+.nav-menu .login-link {
+  background-color: rgba(34, 184, 240, 0.15);
+  font-weight: 600;
+}
+
+.nav-menu .login-link:hover {
+  background-color: #22B8F0;
+  color: #000;
+}
+
+.nav-menu .upload-link {
+  background-color: rgba(106, 13, 173, 0.15);
+  font-weight: 600;
+}
+
+.nav-menu .upload-link:hover {
+  background-color: #6a0dad;
+  color: #fff;
+}
+
+/* Header for hamburger */
+.hamburgerHeader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 
 
 
@@ -492,6 +527,7 @@ label {
 
 input, select, textarea {
   width: 90%; /* Reduced width for a cleaner look */
+  max-width: 500px;
   padding: 10px; /* Adjusted padding */
   border: 3px solid #6a0dad; /* Purple border for consistency */
   border-radius: 6px; /* Rounded corners for modern UI */
@@ -500,6 +536,8 @@ input, select, textarea {
   background-color: #f7f7f7; /* Light gray background for inputs */
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.4s ease;
   margin: 0 auto; /* Center align within the container */
+  box-sizing: border-box;
+  display: block;
 }
 
 input:hover, select:hover, textarea:hover {
@@ -663,4 +701,351 @@ button:hover {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+/* Dashboard Styles */
+.dashboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.dashboard-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(34, 184, 240, 0.2);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(34, 184, 240, 0.3);
+}
+
+.dashboard-header h1 {
+  color: #22B8F0;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #d32f2f, #c62828);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #f57c00, #e65100);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.user-info-section,
+.elevation-section,
+.contribution-section,
+.elevated-role-section {
+  margin-bottom: 30px;
+}
+
+.user-info-section h2,
+.elevation-section h2,
+.contribution-section h2,
+.elevated-role-section h2 {
+  color: #22B8F0;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(34, 184, 240, 0.2);
+  padding-bottom: 10px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid #22B8F0;
+}
+
+.info-item label {
+  display: block;
+  color: #22B8F0;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.info-item span {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.role-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #22B8F0, #0f3460);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.info-text {
+  color: #cccccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #22B8F0;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(34, 184, 240, 0.3);
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #22B8F0;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px rgba(34, 184, 240, 0.3);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #22B8F0, #1a7fa1);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2cc5ff, #22B8F0);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 184, 240, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.message {
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.success-message {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.error-message {
+  background: rgba(211, 47, 47, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(211, 47, 47, 0.4);
+}
+
+.success-badge {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(56, 142, 60, 0.2));
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  color: #4CAF50;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contribution-section {
+  background: rgba(106, 13, 173, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #6a0dad;
+}
+
+/* Admin Panel Styles */
+.admin-section {
+  background: rgba(34, 184, 240, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #22B8F0;
+  margin-bottom: 30px;
+}
+
+.admin-section h2 {
+  color: #22B8F0;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(34, 184, 240, 0.2);
+  padding-bottom: 10px;
+}
+
+.requests-table {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.requests-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.requests-table thead {
+  background: rgba(34, 184, 240, 0.15);
+  border-bottom: 2px solid rgba(34, 184, 240, 0.3);
+}
+
+.requests-table th {
+  color: #22B8F0;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.requests-table td {
+  color: #cccccc;
+  padding: 12px;
+  border-bottom: 1px solid rgba(34, 184, 240, 0.1);
+}
+
+.requests-table tbody tr:hover {
+  background: rgba(34, 184, 240, 0.05);
+  transition: all 0.2s ease;
+}
+
+.justification-cell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.approve-btn,
+.deny-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.approve-btn {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+  color: white;
+}
+
+.approve-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #66BB6A, #4CAF50);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.deny-btn {
+  background: linear-gradient(135deg, #d32f2f, #c62828);
+  color: white;
+}
+
+.deny-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ef5350, #d32f2f);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.approve-btn:disabled,
+.deny-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .requests-table {
+    font-size: 0.9rem;
+  }
+  
+  .requests-table th,
+  .requests-table td {
+    padding: 8px;
+  }
+  
+  .approve-btn,
+  .deny-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    min-width: 70px;
+  }
+  
+  .dashboard-container {
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .dashboard-card {
+    padding: 15px;
+  }
 }

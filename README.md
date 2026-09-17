@@ -4,15 +4,15 @@ Created by Ruhaan Sahi and Adham Eldalil
 
 React frontend for the BC Study Guide Club platform, built with Vite and React Router. It serves study guides and resources across the High School, AP, and IB diplomas, and handles club sign-up, contribution, and question submissions through a connected backend API.
 
-This site was hosted on Microsoft Azure and reached 630+ unique users internationally. It's no longer live, as hosting for the server and domain was discontinued after the school year ended.
+This site was hosted on Microsoft Azure and reached 630+ unique users internationally. It's no longer live, as hosting for the server and domain was discontinued following the graduation of the class of 2026.
 
 ## Stack
 
-- **React 18 with React Router DOM v7** — builds the UI as components and handles all client-side navigation, including the dynamic `/IB/:class_id` route.
-- **Vite** — runs the dev server with hot module reload and bundles the production build.
-- **ESLint** — lints the codebase against the React and React Hooks rule sets defined in `eslint.config.js`.
-- **Cloudinary SDK** — included for handling uploaded/hosted media such as study guide files and images.
-- **js-cookie** — reads and writes the CSRF token cookie used to authenticate form submissions to the Django backend.
+- **React 18 with React Router DOM v7**
+- **Vite** 
+- **ESLint**
+- **Cloudinary SDK**
+- **js-cookie**
 
 ## Routing
 

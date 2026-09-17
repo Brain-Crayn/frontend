@@ -8,8 +8,6 @@ This site was hosted on Microsoft Azure and reached 630+ unique users internatio
 
 ## Stack
 
-## Stack
-
 - **React 18 with React Router DOM v7** — builds the UI as components and handles all client-side navigation, including the dynamic `/IB/:class_id` route.
 - **Vite** — runs the dev server with hot module reload and bundles the production build.
 - **ESLint** — lints the codebase against the React and React Hooks rule sets defined in `eslint.config.js`.

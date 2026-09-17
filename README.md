@@ -1,6 +1,6 @@
 # BC Study Guide Club — Frontend
 
-Created by Ruhaan Sahi (Frontend) and Adham Eldalil (Backend)
+Created by Ruhaan Sahi and Adham Eldalil 
 
 React frontend for the BC Study Guide Club platform, built with Vite and React Router. It serves study guides and resources across the High School, AP, and IB diplomas, and handles club sign-up, contribution, and question submissions through a connected backend API.
 
